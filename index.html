@@ -42,7 +42,8 @@
       box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
     }
 
-    h1, h2 {
+    h1,
+    h2 {
       line-height: 1.2;
       margin-top: 0;
     }
@@ -75,6 +76,7 @@
       padding: 14px;
       width: 220px;
       height: 220px;
+      object-fit: contain;
     }
 
     .address-box {
@@ -86,6 +88,7 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: 0.95rem;
       color: #fff;
+      margin-top: 8px;
     }
 
     .buttons {
@@ -95,7 +98,8 @@
       margin-top: 18px;
     }
 
-    button, a.button {
+    button,
+    a.button {
       border: 0;
       border-radius: 999px;
       padding: 12px 18px;
@@ -105,12 +109,19 @@
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
+      font-size: 1rem;
     }
 
     a.button.secondary {
       background: transparent;
       color: var(--text);
       border: 1px solid var(--border);
+    }
+
+    button:focus,
+    a.button:focus {
+      outline: 3px solid rgba(255, 102, 0, 0.45);
+      outline-offset: 2px;
     }
 
     ol {
@@ -131,6 +142,11 @@
       border-radius: 8px;
     }
 
+    .small {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
     footer {
       margin-top: 28px;
       font-size: 0.9rem;
@@ -139,6 +155,14 @@
     }
 
     @media (max-width: 680px) {
+      main {
+        padding: 28px 14px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
       .donation-box {
         grid-template-columns: 1fr;
       }
@@ -154,6 +178,7 @@
   <main>
     <section class="card">
       <h1>Donate with Monero</h1>
+
       <p>
         Support this project with a private, peer-to-peer Monero donation.
         Scan the QR code with a Monero wallet, or copy the address below.
@@ -162,30 +187,35 @@
       <div class="donation-box">
         <img
           class="qr"
-          id="qr-code"
           alt="Monero donation QR code"
-          src="xmr-gr.png"
+          src="xmr-qr.png"
         />
 
         <div>
           <strong>Monero address</strong>
+
           <div class="address-box" id="xmr-address">
-            YOUR_MONERO_ADDRESS_HERE
+            YOUR_PUBLIC_MONERO_SUBADDRESS_HERE
           </div>
 
           <div class="buttons">
-            <button onclick="copyAddress()">Copy Address</button>
+            <button type="button" onclick="copyAddress()">Copy Address</button>
             <a class="button secondary" id="wallet-link" href="#">Open in Wallet</a>
           </div>
+
+          <p class="small">
+            The QR code should contain the same address shown here.
+          </p>
         </div>
       </div>
 
       <div class="warning">
-        Only send Monero/XMR to this address. Do not send Bitcoin, Ethereum, USDT,
-        or any other asset here.
+        Only send Monero/XMR to this address. Do not send Bitcoin, Ethereum,
+        USDT, or any other asset here.
       </div>
 
       <h2>How to donate</h2>
+
       <ol>
         <li>Open your Monero wallet.</li>
         <li>Scan the QR code, or copy and paste the address.</li>
@@ -195,18 +225,22 @@
       </ol>
 
       <h2>Need Monero?</h2>
+
       <p>
-        If you do not already have XMR, the usual process is:
+        If you do not already have XMR, the general process is:
       </p>
+
       <ol>
-        <li>Install a Monero-compatible wallet. The official Monero site lists desktop, mobile, light, and hardware wallet options. :contentReference[oaicite:0]{index=0}</li>
-        <li>Buy XMR through an exchange, a peer-to-peer market, mining, or by receiving it for goods or services. The official Monero site notes that many centralized and decentralized exchanges list XMR. :contentReference[oaicite:1]{index=1}</li>
-        <li>Withdraw the XMR to your own wallet.</li>
+        <li>Install a Monero-compatible wallet from the official Monero website or another trusted source.</li>
+        <li>Buy XMR through an exchange, peer-to-peer marketplace, mining, or by receiving it from someone else.</li>
+        <li>Withdraw the XMR to your own Monero wallet.</li>
         <li>Return to this page and send the donation from your wallet.</li>
       </ol>
 
       <p>
-        For wallet setup and payment basics, use the official Monero resources rather than random download links. Monero’s own documentation explains receiving via address or QR code and notes that funds require confirmations before they are safely spendable. :contentReference[oaicite:2]{index=2}
+        Availability of XMR varies by country and platform. Always verify that
+        the service you use is legitimate, supports Monero withdrawals, and is
+        legal in your jurisdiction.
       </p>
     </section>
 
@@ -216,29 +250,23 @@
   </main>
 
   <script>
-    const MONERO_ADDRESS = "YOUR_MONERO_ADDRESS_HERE";
-
-    // Optional: add a fixed amount by changing this to something like:
-    // const MONERO_URI = `monero:${MONERO_ADDRESS}?tx_amount=0.1&tx_description=Donation`;
+    const MONERO_ADDRESS = "83WN1oYf3c3RzT1aFao5jogBgf5HSDywn2wEvJGNEYbaah8ZwNXePqdCPJhRqBtwBoDtACkBwKgSVaxj2nnmdipVRWyEZeF";
     const MONERO_URI = `monero:${MONERO_ADDRESS}?tx_description=Donation`;
 
-    const qrCode = document.getElementById("qr-code");
-    const walletLink = document.getElementById("wallet-link");
     const addressBox = document.getElementById("xmr-address");
+    const walletLink = document.getElementById("wallet-link");
 
     addressBox.textContent = MONERO_ADDRESS;
     walletLink.href = MONERO_URI;
 
-    // Uses a public QR rendering endpoint. For stricter privacy/self-hosting,
-    // generate a static QR PNG locally and replace this src with that file path.
-    qrCode.src =
-      "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" +
-      encodeURIComponent(MONERO_URI);
-
     function copyAddress() {
       navigator.clipboard.writeText(MONERO_ADDRESS)
-        .then(() => alert("Monero address copied."))
-        .catch(() => alert("Copy failed. Please copy the address manually."));
+        .then(() => {
+          alert("Monero address copied.");
+        })
+        .catch(() => {
+          alert("Copy failed. Please copy the address manually.");
+        });
     }
   </script>
 </body>
