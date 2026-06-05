@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monero Donation Walkthrough</title>
+  <meta name="description" content="Step-by-step instructions for donating with Monero." />
+
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #181b22;
+      --text: #f4f4f5;
+      --muted: #c9d2e3;
+      --accent: #ff6600;
+      --border: #2a2f3a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #242833 0, var(--bg) 45%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+
+    .card {
+      background: rgba(24, 27, 34, 0.94);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 34px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin-top: 38px;
+      color: var(--accent);
+    }
+
+    h3 {
+      margin-top: 26px;
+      color: #fff;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+    }
+
+    a {
+      color: #ffd0b0;
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+
+    .top-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #ffd0b0;
+      text-decoration: none;
+    }
+
+    .top-link:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .notice {
+      margin: 24px 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: #111318;
+      color: var(--muted);
+      border-radius: 8px;
+    }
+
+    .address-box {
+      background: #101218;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      overflow-wrap: anywhere;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.95rem;
+      color: #fff;
+      margin: 12px 0;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    button,
+    a.button {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: var(--accent);
+      color: #111;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1rem;
+    }
+
+    a.button.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    ol,
+    ul {
+      padding-left: 1.35rem;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .small {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 28px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      main {
+        padding: 28px 14px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <a class="top-link" href="index.html">Back to donation page</a>
+
+    <section class="card">
+      <h1>How to Donate with Monero</h1>
+
+      <p>
+        This walkthrough is for visitors who want to donate with Monero but may not
+        already have a Monero wallet or XMR. It explains the process in plain terms.
+      </p>
+
+      <div class="notice">
+        Monero is the only asset accepted at this donation address. Do not send
+        Bitcoin, Ethereum, USDT, or any other cryptocurrency to the Monero address.
+      </div>
+
+      <h2>The short version</h2>
+
+      <ol>
+        <li>Install a Monero wallet.</li>
+        <li>Get some XMR.</li>
+        <li>Send the XMR to the donation address.</li>
+      </ol>
+
+      <p>
+        If you already have a Monero wallet with XMR in it, you can skip directly
+        to the donation step.
+      </p>
+
+      <h2>Step 1: Install a Monero wallet</h2>
+
+      <p>
+        A wallet is the app that lets you receive, hold, and send Monero. Use a
+        Monero-compatible wallet from a trusted source.
+      </p>
+
+      <p>
+        A good starting point is the official Monero wallet download page:
+        <a href="https://www.getmonero.org/downloads/" target="_blank" rel="noopener noreferrer">
+          https://www.getmonero.org/downloads/
+        </a>
+      </p>
+
+      <p>
+        After installing the wallet, follow its setup instructions. The wallet may
+        give you a recovery phrase, seed, or keys. Keep those private. Anyone who
+        gets access to your recovery information may be able to access your funds.
+      </p>
+
+      <h2>Step 2: Get XMR</h2>
+
+      <p>
+        XMR is the currency used by Monero. To donate with Monero, you need some
+        XMR in your own Monero wallet.
+      </p>
+
+      <p>
+        The usual path is to buy XMR from a service that supports Monero and then
+        withdraw the XMR to your own wallet. Make sure the service allows actual
+        XMR withdrawals. Some platforms only let you trade exposure to the price
+        and do not let you withdraw real Monero.
+      </p>
+
+      <p>
+        Availability depends on your country and the platform you use. Only use
+        services that are legal in your jurisdiction.
+      </p>
+
+      <h2>Step 3: Withdraw XMR to your own wallet</h2>
+
+      <p>
+        If you bought XMR on an exchange or another service, withdraw it to the
+        receiving address shown inside your own Monero wallet.
+      </p>
+
+      <p>
+        This step matters because the donation should be sent from a wallet that
+        you control. After the withdrawal completes and your wallet shows the XMR
+        balance, you are ready to donate.
+      </p>
+
+      <h2>Step 4: Send the donation</h2>
+
+      <p>
+        Return to the donation page and either scan the QR code or copy the Monero
+        address.
+      </p>
+
+      <p>
+        Donation address:
+      </p>
+
+      <div class="address-box" id="xmr-address">
+        83WN1oYf3c3RzT1aFao5jogBgf5HSDywn2wEvJGNEYbaah8ZwNXePqdCPJhRqBtwBoDtACkBwKgSVaxj2nnmdipVRWyEZeF
+      </div>
+
+      <div class="button-row">
+        <button type="button" onclick="copyAddress()">Copy Monero Address</button>
+        <a class="button secondary" id="wallet-link" href="#">Open Wallet App</a>
+      </div>
+
+      <h3>If scanning the QR code</h3>
+
+      <ol>
+        <li>Open your Monero wallet app.</li>
+        <li>Choose the send option.</li>
+        <li>Scan the QR code on the donation page.</li>
+        <li>Enter the amount of XMR you want to donate.</li>
+        <li>Review the address and amount carefully.</li>
+        <li>Send the transaction.</li>
+      </ol>
+
+      <h3>If copying the address</h3>
+
+      <ol>
+        <li>Copy the donation address.</li>
+        <li>Open your Monero wallet.</li>
+        <li>Choose the send option.</li>
+        <li>Paste the address into the recipient field.</li>
+        <li>Enter the amount of XMR you want to donate.</li>
+        <li>Review the address and amount carefully.</li>
+        <li>Send the transaction.</li>
+      </ol>
+
+      <h2>Step 5: Wait for confirmation</h2>
+
+      <p>
+        After sending, the Monero network needs time to confirm the transaction.
+        Your wallet may show the transaction as pending before it is fully confirmed.
+        That is normal.
+      </p>
+
+      <h2>Safety checks</h2>
+
+      <ul>
+        <li>Only send XMR to this address.</li>
+        <li>Do not send other cryptocurrencies to a Monero address.</li>
+        <li>Make sure the copied address matches the address shown on the donation page.</li>
+        <li>Do not share your wallet seed, recovery phrase, private spend key, or private view key.</li>
+        <li>Use only wallet software and services you trust.</li>
+      </ul>
+
+      <div class="notice">
+        If you are unsure, send a small test amount first. After confirming that
+        it worked, you can send the rest.
+      </div>
+
+      <p>
+        <a class="button" href="index.html">Return to Donation Page</a>
+      </p>
+
+      <p class="small">
+        This page is a general walkthrough, not financial or legal advice.
+      </p>
+    </section>
+
+    <footer>
+      Thank you for your support.
+    </footer>
+  </main>
+
+  <script>
+    const MONERO_ADDRESS = "83WN1oYf3c3RzT1aFao5jogBgf5HSDywn2wEvJGNEYbaah8ZwNXePqdCPJhRqBtwBoDtACkBwKgSVaxj2nnmdipVRWyEZeF";
+    const MONERO_URI = `monero:${MONERO_ADDRESS}?tx_description=Donation`;
+
+    const addressBox = document.getElementById("xmr-address");
+    const walletLink = document.getElementById("wallet-link");
+
+    addressBox.textContent = MONERO_ADDRESS;
+    walletLink.href = MONERO_URI;
+
+    function copyAddress() {
+      navigator.clipboard.writeText(MONERO_ADDRESS)
+        .then(() => {
+          alert("Monero address copied.");
+        })
+        .catch(() => {
+          alert("Copy failed. Please copy the address manually.");
+        });
+    }
+  </script>
+</body>
+</html>
