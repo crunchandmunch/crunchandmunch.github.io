@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Donate with Monero</title>
-  <meta name="description" content="Support this project with a private Monero donation." />
+  <meta name="description" content="Support this project with a Monero donation." />
 
   <style>
     :root {
@@ -132,15 +132,6 @@
       outline-offset: 2px;
     }
 
-    ol {
-      color: var(--muted);
-      padding-left: 1.3rem;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
     .warning {
       margin-top: 24px;
       padding: 14px 16px;
@@ -188,7 +179,6 @@
       <h1>Donate with Monero</h1>
 
       <p>
-        Support this project with a private, peer-to-peer Monero donation.
         Scan the QR code with a Monero wallet, or copy the address below.
       </p>
 
@@ -203,16 +193,16 @@
           <strong>Monero address</strong>
 
           <div class="address-box" id="xmr-address">
-            YOUR_PUBLIC_MONERO_SUBADDRESS_HERE
+            83WN1oYf3c3RzT1aFao5jogBgf5HSDywn2wEvJGNEYbaah8ZwNXePqdCPJhRqBtwBoDtACkBwKgSVaxj2nnmdipVRWyEZeF
           </div>
 
           <div class="buttons">
-            <button type="button" onclick="copyAddress()">Copy Address</button>
-            <a class="button secondary" id="wallet-link" href="#">Open in Wallet</a>
+            <button type="button" onclick="copyAddress()">Copy Monero Address</button>
+            <a class="button secondary" id="wallet-link" href="#">Open Wallet App</a>
           </div>
 
           <p class="small">
-            The QR code should contain the same address shown here.
+            Scan with a Monero wallet app.
           </p>
         </div>
       </div>
@@ -222,42 +212,22 @@
         USDT, or any other asset here.
       </div>
 
-      <h2>How to donate</h2>
-
-      <ol>
-        <li>Open your Monero wallet.</li>
-        <li>Scan the QR code, or copy and paste the address.</li>
-        <li>Enter the amount of XMR you want to donate.</li>
-        <li>Review the address carefully before sending.</li>
-        <li>Send the transaction.</li>
-      </ol>
-
       <h2>Need Monero?</h2>
 
       <p>
-        If you do not already have XMR, the simplest path is:
-      </p>
-
-      <ol>
-        <li>
-          Install a Monero-compatible wallet from the
-          <a href="https://www.getmonero.org/downloads/" target="_blank" rel="noopener noreferrer">
-            official Monero website
-          </a>.
-        </li>
-        <li>Buy XMR from a service that supports Monero withdrawals.</li>
-        <li>Withdraw the XMR to your own Monero wallet.</li>
-        <li>Return to this page and scan the QR code to donate.</li>
-      </ol>
-
-      <p>
-        Important: make sure the service you use supports actual XMR withdrawals.
-        Some platforms only provide price exposure and do not let you withdraw Monero.
+        New to Monero? Install a wallet, buy XMR from a service that allows withdrawals,
+        then return here and scan the QR code.
       </p>
 
       <p>
-        Availability varies by country and platform. Verify that buying and using
-        Monero is legal in your jurisdiction.
+        Start here:
+        <a href="https://www.getmonero.org/downloads/" target="_blank" rel="noopener noreferrer">
+          Official Monero wallets
+        </a>
+      </p>
+
+      <p class="small">
+        Only use services legal in your jurisdiction. Make sure they allow real XMR withdrawals.
       </p>
     </section>
 
